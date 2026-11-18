@@ -1,1 +1,468 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT POSITION | Company Profile</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #263445;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        header {
+            background: #102b46;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #f5b942;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #f5b942;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 550px;
+            background:
+                linear-gradient(rgba(10,30,50,.8),
+                rgba(10,30,50,.8)),
+                url('https://images.unsplash.com/photo-1497366754035-f200968a6e72')
+                center/cover;
+            display: flex;
+            align-items: center;
+            padding: 70px 8%;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #f5b942;
+        }
+
+        .hero p {
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 28px;
+            background: #f5b942;
+            color: #102b46;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: white;
+        }
+
+        /* SECTION */
+        section {
+            padding: 75px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: #102b46;
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+        /* ABOUT */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .about h2 {
+            color: #102b46;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* VISI MISI */
+        .vision {
+            background: #102b46;
+            color: white;
+        }
+
+        .vision .section-title h2 {
+            color: white;
+        }
+
+        .vision-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .vision-box {
+            background: #193c5c;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #f5b942;
+        }
+
+        .vision-box h3 {
+            color: #f5b942;
+            margin-bottom: 15px;
+        }
+
+        /* SERVICES */
+        .service-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-box {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.07);
+            transition: .3s;
+        }
+
+        .service-box:hover {
+            transform: translateY(-8px);
+        }
+
+        .service-box .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .service-box h3 {
+            color: #102b46;
+            margin-bottom: 10px;
+        }
+
+        /* ADVANTAGE */
+        .advantage {
+            background: #eaf0f5;
+        }
+
+        .advantage-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .advantage-box {
+            padding: 25px;
+        }
+
+        .advantage-box h3 {
+            color: #102b46;
+            margin-bottom: 10px;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-top: 25px;
+            line-height: 2.2;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #102b46;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer span {
+            color: #f5b942;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .about,
+            .vision-container {
+                grid-template-columns: 1fr;
+            }
+
+            .service-container,
+            .advantage-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <div class="logo">PT <span>POSITION</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#vision">Visi Misi</a>
+        <a href="#services">Layanan</a>
+        <a href="#contact">Kontak</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<div class="hero" id="home">
+    <div class="hero-content">
+        <h1>WELCOME TO <span>PT POSITION</span></h1>
+        <p>
+            Membangun Masa Depan Melalui Profesionalisme,
+            Inovasi, dan Komitmen Terbaik.
+        </p>
+        <a href="#about" class="btn">SELENGKAPNYA</a>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="about">
+        <div>
+            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2"
+                 alt="Kantor PT Position">
+        </div>
+
+        <div>
+            <h2>Tentang PT POSITION</h2>
+            <p>
+                PT POSITION merupakan perusahaan yang berkomitmen
+                untuk memberikan pelayanan dan solusi terbaik
+                kepada pelanggan serta mitra bisnis.
+            </p>
+            <br>
+            <p>
+                Dengan mengutamakan profesionalisme, kualitas,
+                integritas, dan inovasi, PT POSITION terus berupaya
+                menjadi perusahaan yang terpercaya dan mampu
+                memberikan nilai tambah bagi masyarakat.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- VISI MISI -->
+<section class="vision" id="vision">
+    <div class="section-title">
+        <h2>Visi dan Misi</h2>
+        <p>Komitmen kami untuk masa depan yang lebih baik</p>
+    </div>
+
+    <div class="vision-container">
+        <div class="vision-box">
+            <h3>VISI</h3>
+            <p>
+                Menjadi perusahaan yang unggul, terpercaya,
+                profesional, dan berdaya saing tinggi
+                dalam memberikan pelayanan terbaik.
+            </p>
+        </div>
+
+        <div class="vision-box">
+            <h3>MISI</h3>
+            <p>
+                1. Memberikan pelayanan berkualitas.<br>
+                2. Mengutamakan kepuasan pelanggan.<br>
+                3. Mengembangkan inovasi dan teknologi.<br>
+                4. Membangun kerja sama yang profesional.<br>
+                5. Menjunjung tinggi integritas.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="section-title">
+        <h2>Layanan Kami</h2>
+        <p>Solusi profesional untuk kebutuhan Anda</p>
+    </div>
+
+    <div class="service-container">
+
+        <div class="service-box">
+            <div class="icon">🏢</div>
+            <h3>Konsultasi Bisnis</h3>
+            <p>
+                Memberikan solusi dan konsultasi
+                untuk mendukung perkembangan bisnis.
+            </p>
+        </div>
+
+        <div class="service-box">
+            <div class="icon">🤝</div>
+            <h3>Kerja Sama</h3>
+            <p>
+                Membangun hubungan kerja sama
+                yang saling menguntungkan.
+            </p>
+        </div>
+
+        <div class="service-box">
+            <div class="icon">💼</div>
+            <h3>Layanan Profesional</h3>
+            <p>
+                Memberikan pelayanan terbaik
+                dengan standar profesional.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ADVANTAGE -->
+<section class="advantage">
+    <div class="section-title">
+        <h2>Mengapa Memilih Kami?</h2>
+        <p>Keunggulan PT POSITION</p>
+    </div>
+
+    <div class="advantage-container">
+
+        <div class="advantage-box">
+            <h3>Profesional</h3>
+            <p>Didukung komitmen dan standar kerja profesional.</p>
+        </div>
+
+        <div class="advantage-box">
+            <h3>Terpercaya</h3>
+            <p>Mengutamakan integritas dan tanggung jawab.</p>
+        </div>
+
+        <div class="advantage-box">
+            <h3>Inovatif</h3>
+            <p>Terus berkembang mengikuti kebutuhan zaman.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="section-title">
+        <h2>Hubungi Kami</h2>
+        <p>Kami siap menjadi mitra terbaik Anda</p>
+    </div>
+
+    <div class="contact-container">
+        <p>
+            Untuk informasi lebih lanjut mengenai PT POSITION,
+            silakan hubungi kami melalui informasi berikut.
+        </p>
+
+        <div class="contact-info">
+            <p>📍 Alamat: [Masukkan Alamat Perusahaan]</p>
+            <p>📞 Telepon: [Nomor Telepon]</p>
+            <p>✉️ Email: [Email Perusahaan]</p>
+            <p>🌐 Website: www.ptposition.com</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>
+        &copy; 2026 <span>PT POSITION</span>.
+        All Rights Reserved.
+    </p>
+    <p>Professionalism | Innovation | Integrity</p>
+</footer>
+
+</body>
+</html>
+
