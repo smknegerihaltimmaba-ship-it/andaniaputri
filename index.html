@@ -1,467 +1,823 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT POSITION | Company Profile</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            color: #263445;
-            line-height: 1.6;
-        }
-
-        /* NAVBAR */
-        header {
-            background: #102b46;
-            color: white;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .logo span {
-            color: #f5b942;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #f5b942;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 550px;
-            background:
-                linear-gradient(rgba(10,30,50,.8),
-                rgba(10,30,50,.8)),
-                url('https://images.unsplash.com/photo-1497366754035-f200968a6e72')
-                center/cover;
-            display: flex;
-            align-items: center;
-            padding: 70px 8%;
-            color: white;
-        }
-
-        .hero-content {
-            max-width: 650px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: #f5b942;
-        }
-
-        .hero p {
-            font-size: 17px;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 13px 28px;
-            background: #f5b942;
-            color: #102b46;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        .btn:hover {
-            background: white;
-        }
-
-        /* SECTION */
-        section {
-            padding: 75px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-title h2 {
-            font-size: 32px;
-            color: #102b46;
-        }
-
-        .section-title p {
-            color: #777;
-        }
-
-        /* ABOUT */
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .about img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .about h2 {
-            color: #102b46;
-            font-size: 30px;
-            margin-bottom: 20px;
-        }
-
-        /* VISI MISI */
-        .vision {
-            background: #102b46;
-            color: white;
-        }
-
-        .vision .section-title h2 {
-            color: white;
-        }
-
-        .vision-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .vision-box {
-            background: #193c5c;
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 5px solid #f5b942;
-        }
-
-        .vision-box h3 {
-            color: #f5b942;
-            margin-bottom: 15px;
-        }
-
-        /* SERVICES */
-        .service-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .service-box {
-            background: white;
-            padding: 30px;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,.07);
-            transition: .3s;
-        }
-
-        .service-box:hover {
-            transform: translateY(-8px);
-        }
-
-        .service-box .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .service-box h3 {
-            color: #102b46;
-            margin-bottom: 10px;
-        }
-
-        /* ADVANTAGE */
-        .advantage {
-            background: #eaf0f5;
-        }
-
-        .advantage-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            text-align: center;
-        }
-
-        .advantage-box {
-            padding: 25px;
-        }
-
-        .advantage-box h3 {
-            color: #102b46;
-            margin-bottom: 10px;
-        }
-
-        /* CONTACT */
-        .contact {
-            background: white;
-        }
-
-        .contact-container {
-            max-width: 700px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .contact-info {
-            margin-top: 25px;
-            line-height: 2.2;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #102b46;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
-
-        footer span {
-            color: #f5b942;
-        }
-
-        /* RESPONSIVE */
-        @media(max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 12px;
-            }
-
-            nav a {
-                margin: 0;
-            }
-
-            .hero h1 {
-                font-size: 34px;
-            }
-
-            .about,
-            .vision-container {
-                grid-template-columns: 1fr;
-            }
-
-            .service-container,
-            .advantage-container {
-                grid-template-columns: 1fr;
+    <title>PT Position | Pertambangan Nikel Berkelanjutan - Halmahera Timur</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon Profesional -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Konfigurasi Kustom Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            800: '#0F2537',
+                            900: '#091826',
+                            950: '#050E17',
+                        },
+                        emerald: {
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        amber: {
+                            500: '#F59E0B',
+                            600: '#D97706',
+                        }
+                    }
+                }
             }
         }
-    </style>
+    </script>
 </head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-emerald-600 selection:text-white">
 
-<body>
+    <!-- ==================== NAVBAR RESPONSIF ==================== -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-navy-900/95 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Perusahaan -->
+                <a href="#beranda" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-amber-500 flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <div>
+                        <span class="text-white font-extrabold text-xl tracking-tight block leading-none">PT POSITION</span>
+                        <span class="text-emerald-400 text-[11px] font-medium tracking-widest uppercase">Nickel Mining & Energy</span>
+                    </div>
+                </a>
 
-<!-- NAVBAR -->
-<header>
-    <div class="logo">PT <span>POSITION</span></div>
+                <!-- Menu Desktop -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#beranda" class="text-slate-200 hover:text-amber-400 text-sm font-medium transition-colors">Beranda</a>
+                    <a href="#tentang" class="text-slate-200 hover:text-amber-400 text-sm font-medium transition-colors">Tentang Kami</a>
+                    <a href="#layanan" class="text-slate-200 hover:text-amber-400 text-sm font-medium transition-colors">Operasional</a>
+                    <a href="#keberlanjutan" class="text-slate-200 hover:text-amber-400 text-sm font-medium transition-colors">Keberlanjutan & CSR</a>
+                    <a href="#galeri" class="text-slate-200 hover:text-amber-400 text-sm font-medium transition-colors">Proyek</a>
+                    <a href="#kontak" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold transition-all shadow-md hover:shadow-emerald-500/30">
+                        Hubungi Kami
+                    </a>
+                </nav>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">Tentang Kami</a>
-        <a href="#vision">Visi Misi</a>
-        <a href="#services">Layanan</a>
-        <a href="#contact">Kontak</a>
-    </nav>
-</header>
-
-<!-- HOME -->
-<div class="hero" id="home">
-    <div class="hero-content">
-        <h1>WELCOME TO <span>PT POSITION</span></h1>
-        <p>
-            Membangun Masa Depan Melalui Profesionalisme,
-            Inovasi, dan Komitmen Terbaik.
-        </p>
-        <a href="#about" class="btn">SELENGKAPNYA</a>
-    </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-    <div class="about">
-        <div>
-            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2"
-                 alt="Kantor PT Position">
+                <!-- Tombol Hamburger Mobile -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" aria-label="Buka Menu" class="p-3 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <div>
-            <h2>Tentang PT POSITION</h2>
-            <p>
-                PT POSITION merupakan perusahaan yang berkomitmen
-                untuk memberikan pelayanan dan solusi terbaik
-                kepada pelanggan serta mitra bisnis.
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-b border-white/10 px-4 pt-2 pb-6 space-y-2 shadow-2xl">
+            <a href="#beranda" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-white/5 hover:text-amber-400">Beranda</a>
+            <a href="#tentang" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-white/5 hover:text-amber-400">Tentang Kami</a>
+            <a href="#layanan" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-white/5 hover:text-amber-400">Layanan & Operasional</a>
+            <a href="#keberlanjutan" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-white/5 hover:text-amber-400">Keberlanjutan & CSR</a>
+            <a href="#galeri" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-white/5 hover:text-amber-400">Galeri Proyek</a>
+            <a href="#kontak" class="mobile-link block px-4 py-3 mt-4 text-center rounded-xl text-base font-semibold bg-emerald-600 text-white hover:bg-emerald-500">Hubungi Kami</a>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="beranda" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-navy-950">
+        <!-- Background Image dengan Overlay Gradasi -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1578319439584-104c94d37305?auto=format&fit=crop&w=1920&q=80" 
+                 onerror="this.src='https://placehold.co/1920x1080/091826/10B981?text=Operasional+Tambang+PT+Position'"
+                 alt="Operasional Pertambangan Nikel PT Position" 
+                 class="w-full h-full object-cover object-center opacity-35">
+            <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-900/90 to-navy-900/40"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-semibold mb-6">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Operasional Halmahera Timur, Maluku Utara</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                    Mendorong Masa Depan Energi Bersih melalui <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-amber-400">Pertambangan Berkelanjutan</span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-10 max-w-2xl">
+                    PT Position berkomitmen mengelola sumber daya nikel secara bertanggung jawab di Maluku Utara dengan mengutamakan keselamatan kerja (Zero Harm), kelestarian lingkungan, dan kesejahteraan masyarakat lokal.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#tentang" class="px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-navy-950 font-bold text-center transition-all shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2">
+                        <span>Jelajahi Profil Kami</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#keberlanjutan" class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold text-center backdrop-blur-sm transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-leaf text-emerald-400"></i>
+                        <span>Komitmen ESG & CSR</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dekorasi Bawah -->
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-slate-50 to-transparent z-10"></div>
+    </section>
+
+    <!-- ==================== STATISTIK PERUSAHAAN (COUNTER) ==================== -->
+    <section id="statistik" class="relative z-20 -mt-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 sm:p-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+                <!-- Stat 1 -->
+                <div class="text-center pt-4 sm:pt-0">
+                    <div class="w-12 h-12 rounded-2xl bg-navy-800/10 text-navy-800 flex items-center justify-center mx-auto mb-3 text-xl">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900 flex justify-center items-baseline">
+                        <span class="counter" data-target="4017">0</span>
+                        <span class="text-emerald-600 text-xl ml-1">Ha</span>
+                    </div>
+                    <p class="text-sm font-medium text-slate-500 mt-1">Luas Wilayah Konsesi IUP</p>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="text-center pt-6 sm:pt-0 sm:pl-6">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-600/10 text-emerald-600 flex items-center justify-center mx-auto mb-3 text-xl">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900 flex justify-center items-baseline">
+                        <span class="counter" data-target="78">0</span>
+                        <span class="text-emerald-600 text-xl ml-1">%</span>
+                    </div>
+                    <p class="text-sm font-medium text-slate-500 mt-1">Tenaga Kerja Lokal Maluku Utara</p>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="text-center pt-6 lg:pt-0 lg:pl-6">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center mx-auto mb-3 text-xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900 flex justify-center items-baseline">
+                        <span class="counter" data-target="2500">0</span>
+                        <span class="text-amber-500 text-xl ml-1">+</span>
+                    </div>
+                    <p class="text-sm font-medium text-slate-500 mt-1">Hari Tanpa Kecelakaan (LTI Free)</p>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="text-center pt-6 lg:pt-0 lg:pl-6">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-600/10 text-emerald-600 flex items-center justify-center mx-auto mb-3 text-xl">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900 flex justify-center items-baseline">
+                        <span class="counter" data-target="45000">0</span>
+                        <span class="text-emerald-600 text-xl ml-1">+</span>
+                    </div>
+                    <p class="text-sm font-medium text-slate-500 mt-1">Pohon Endemik Ditanam Kembali</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TENTANG KAMI ==================== -->
+    <section id="tentang" class="py-20 lg:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Gambar & Badge -->
+                <div class="lg:col-span-6 relative">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1000&q=80" 
+                             onerror="this.src='https://placehold.co/800x600/0F2537/FFFFFF?text=Tim+Geologi+PT+Position'"
+                             alt="Tim Eksplorasi PT Position" 
+                             class="w-full h-[420px] object-cover">
+                    </div>
+                    <!-- Floating Card -->
+                    <div class="bg-navy-900 text-white p-6 rounded-2xl shadow-xl max-w-xs absolute -bottom-6 -right-4 sm:right-6 border border-white/10">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <i class="fa-solid fa-award text-amber-400 text-2xl"></i>
+                            <span class="font-bold text-lg">Standar Internasional</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Menerapkan prinsip Good Mining Practice (GMP) sesuai regulasi Kementerian ESDM dan standar ESG global.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Konten Profil, Visi & Misi -->
+                <div class="lg:col-span-6 space-y-6 mt-6 lg:mt-0">
+                    <div class="inline-block px-3 py-1 rounded-lg bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+                        Tentang PT Position
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 leading-tight">
+                        Mitra Strategis Hilirisasi Nikel Nasional dari Bumi Halmahera
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        <strong>PT Position</strong> adalah perusahaan pertambangan bijih nikel terkemuka yang beroperasi di Kabupaten Halmahera Timur, Provinsi Maluku Utara. Kami berfokus pada penyediaan bahan baku nikel berkualitas tinggi untuk mendukung ekosistem kendaraan listrik (EV) dan energi terbarukan dunia.
+                    </p>
+
+                    <!-- Visi & Misi Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:border-emerald-500 transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-navy-900 text-amber-400 flex items-center justify-center mb-3">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-lg mb-2">Visi Kami</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Menjadi perusahaan pertambangan nikel kelas dunia yang paling tepercaya dalam keberlanjutan lingkungan dan pemberdayaan masyarakat di Indonesia Timur.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:border-emerald-500 transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center mb-3">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-lg mb-2">Misi Kami</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Mengoptimalkan nilai sumber daya mineral melalui operasi yang aman, efisien, ramah lingkungan, serta menciptakan pertumbuhan ekonomi inklusif bagi masyarakat lokal.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Nilai-Nilai Perusahaan (Core Values) -->
+                    <div class="pt-4">
+                        <h4 class="text-sm font-bold text-navy-900 uppercase tracking-wider mb-3">Nilai Utama Perusahaan</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-4 py-2 rounded-xl bg-slate-200/70 text-navy-900 text-xs font-semibold flex items-center gap-2">
+                                <i class="fa-solid fa-check-circle text-emerald-600"></i> Keselamatan Utama
+                            </span>
+                            <span class="px-4 py-2 rounded-xl bg-slate-200/70 text-navy-900 text-xs font-semibold flex items-center gap-2">
+                                <i class="fa-solid fa-check-circle text-emerald-600"></i> Integritas & Transparansi
+                            </span>
+                            <span class="px-4 py-2 rounded-xl bg-slate-200/70 text-navy-900 text-xs font-semibold flex items-center gap-2">
+                                <i class="fa-solid fa-check-circle text-emerald-600"></i> Harmoni Lingkungan
+                            </span>
+                            <span class="px-4 py-2 rounded-xl bg-slate-200/70 text-navy-900 text-xs font-semibold flex items-center gap-2">
+                                <i class="fa-solid fa-check-circle text-emerald-600"></i> Sinergi Lokal
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LAYANAN & OPERASIONAL ==================== -->
+    <section id="layanan" class="py-20 bg-navy-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Rantai Nilai Operasional</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 mb-4">Layanan & Operasional Pertambangan Terpadu</h2>
+                <p class="text-slate-300 text-base">
+                    Setiap tahapan operasi kami dirancang dengan teknologi pemetaan geologi modern dan kontrol kualitas ketat untuk meminimalkan dampak ekologis.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1: Eksplorasi -->
+                <div class="bg-navy-800/80 border border-white/10 rounded-3xl p-8 hover:border-amber-400/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">1. Eksplorasi & Pemetaan Geologi</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        Survei geologi presisi tinggi, pengeboran inti (core drilling), dan analisis laboratorium terakreditasi untuk memetakan cadangan bijih nikel saprolit dan limonit secara akurat.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-300 border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-amber-400"></i> Estimasi Sumber Daya Standar KCMI/JORC</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-amber-400"></i> Pemodelan 3D Geoteknik & Hidrologi</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Penambangan Nikel -->
+                <div class="bg-navy-800/80 border border-white/10 rounded-3xl p-8 hover:border-emerald-400/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-truck-monster"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">2. Penambangan & Logistik Bijih</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        Metode tambang terbuka (open-pit selective mining) yang efisien dengan manajemen stockpile terpadu dan fasilitas pelabuhan khusus (jetty) di pesisir Halmahera Timur.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-300 border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-emerald-400"></i> Kontrol Kadar Bijih Real-Time</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-emerald-400"></i> Armada Angkut Ramah Lingkungan</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Lingkungan & Reklamasi -->
+                <div class="bg-navy-800/80 border border-white/10 rounded-3xl p-8 hover:border-emerald-400/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">3. Pengelolaan Lingkungan & Reklamasi</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        Reklamasi progresif segera setelah lahan selesai ditambang, pengelolaan air limpasan tambang (settling pond), serta konservasi keanekaragaman hayati khas Wallacea.
+                    </p>
+                    <ul class="space-y-2 text-xs text-slate-300 border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-emerald-400"></i> Pusat Pembibitan Tanaman Endemik</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-emerald-400"></i> Pemantauan Kualitas Air & Udara Harian</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== KEBERLANJUTAN & CSR ==================== -->
+    <section id="keberlanjutan" class="py-20 lg:py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-14 gap-6">
+                <div class="max-w-2xl">
+                    <span class="inline-block px-3 py-1 rounded-lg bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
+                        Keberlanjutan, K3 & PPM
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900">
+                        Tumbuh Bersama Masyarakat & Alam Maluku Utara
+                    </h2>
+                </div>
+                <p class="text-slate-600 max-w-md text-sm leading-relaxed">
+                    Program Pengembangan dan Pemberdayaan Masyarakat (PPM/CSR) kami dirancang bersama pemangku kepentingan desa lingkar tambang.
+                </p>
+            </div>
+
+            <!-- Interactive Tab Filter untuk Pilar Keberlanjutan -->
+            <div class="flex flex-wrap gap-3 mb-8">
+                <button onclick="filterCSR('semua')" class="csr-tab active px-5 py-2.5 rounded-xl text-sm font-semibold bg-navy-900 text-white transition-all">
+                    Semua Program
+                </button>
+                <button onclick="filterCSR('masyarakat')" class="csr-tab px-5 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+                    Pemberdayaan Lokal
+                </button>
+                <button onclick="filterCSR('k3')" class="csr-tab px-5 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+                    Keselamatan Kerja (K3)
+                </button>
+                <button onclick="filterCSR('lingkungan')" class="csr-tab px-5 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 transition-all">
+                    Konservasi Ekologi
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="csr-grid">
+                <!-- Item 1 -->
+                <div class="csr-card bg-white rounded-3xl overflow-hidden shadow-md border border-slate-100 flex flex-col" data-category="masyarakat">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" 
+                             onerror="this.src='https://placehold.co/600x400/059669/FFFFFF?text=Pendidikan+Vokasi'"
+                             alt="Pelatihan Vokasi Pemuda Lokal" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-emerald-600 text-white text-xs font-bold">Pemberdayaan Lokal</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-bold text-navy-900 mb-2">Beasiswa & Pelatihan Operator Alat Berat</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Program sertifikasi keahlian teknis bagi putra-putri Halmahera Timur agar siap terserap sebagai tenaga kerja terampil di industri pertambangan.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-emerald-700">
+                            <span>320+ Lulusan Tersertifikasi</span>
+                            <i class="fa-solid fa-graduation-cap text-base"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="csr-card bg-white rounded-3xl overflow-hidden shadow-md border border-slate-100 flex flex-col" data-category="k3">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80" 
+                             onerror="this.src='https://placehold.co/600x400/091826/F59E0B?text=Budaya+K3+Zero+Harm'"
+                             alt="Keselamatan Kerja K3" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-amber-500 text-navy-950 text-xs font-bold">K3 & HSE</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-bold text-navy-900 mb-2">Sistem Manajemen Keselamatan Pertambangan (SMKP)</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Penerapan budaya "Safety First" melalui inspeksi harian, pusat tanggap darurat medis 24 jam, dan teknologi pemantauan kelelahan pengemudi.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-amber-600">
+                            <span>Target Zero Fatality</span>
+                            <i class="fa-solid fa-helmet-safety text-base"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="csr-card bg-white rounded-3xl overflow-hidden shadow-md border border-slate-100 flex flex-col" data-category="lingkungan">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" 
+                             onerror="this.src='https://placehold.co/600x400/047857/FFFFFF?text=Rehabilitasi+DAS'"
+                             alt="Rehabilitasi Hutan dan Pesisir" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-lg bg-emerald-600 text-white text-xs font-bold">Konservasi Ekologi</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-bold text-navy-900 mb-2">Rehabilitasi DAS & Konservasi Mangrove</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Penanaman kembali area pascatambang serta pelestarian ekosistem pesisir teluk Halmahera untuk menjaga kelestarian biota laut bagi nelayan lokal.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-emerald-700">
+                            <span>120+ Hektar Direhabilitasi</span>
+                            <i class="fa-solid fa-leaf text-base"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GALERI PROYEK & FASILITAS ==================== -->
+    <section id="galeri" class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest">Dokumentasi Lapangan</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-2">Galeri Operasional & Infrastruktur</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Foto 1 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md h-64 cursor-pointer" onclick="openLightbox('Area Penambangan Selektif', 'Operasional penggalian bijih nikel dengan pengelolaan lereng berstandar geoteknik di Site Halmahera Timur.')">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80" 
+                         onerror="this.src='https://placehold.co/600x400/0F2537/FFFFFF?text=Site+Tambang'"
+                         alt="Site Tambang" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent flex flex-col justify-end p-5">
+                        <h4 class="text-white font-bold text-base">Site Penambangan Utama</h4>
+                        <p class="text-slate-300 text-xs mt-1">Halmahera Timur</p>
+                    </div>
+                </div>
+
+                <!-- Foto 2 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md h-64 cursor-pointer" onclick="openLightbox('Laboratorium Preparasi & Assay', 'Fasilitas pengujian kadar nikel berteknologi XRF untuk menjamin akurasi kualitas produk.')">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80" 
+                         onerror="this.src='https://placehold.co/600x400/059669/FFFFFF?text=Laboratorium+Nikel'"
+                         alt="Laboratorium" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent flex flex-col justify-end p-5">
+                        <h4 class="text-white font-bold text-base">Laboratorium Analisis</h4>
+                        <p class="text-slate-300 text-xs mt-1">Kontrol Kualitas Kadar</p>
+                    </div>
+                </div>
+
+                <!-- Foto 3 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md h-64 cursor-pointer" onclick="openLightbox('Nursery & Pembibitan Tanaman', 'Pusat pembibitan tanaman lokal dan buah-buahan untuk mendukung program reklamasi berkelanjutan.')">
+                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=600&q=80" 
+                         onerror="this.src='https://placehold.co/600x400/047857/FFFFFF?text=Nursery+Reklamasi'"
+                         alt="Nursery Reklamasi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent flex flex-col justify-end p-5">
+                        <h4 class="text-white font-bold text-base">Pusat Pembibitan (Nursery)</h4>
+                        <p class="text-slate-300 text-xs mt-1">Reklamasi & Penghijauan</p>
+                    </div>
+                </div>
+
+                <!-- Foto 4 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-md h-64 cursor-pointer" onclick="openLightbox('Fasilitas Pelabuhan Khusus (Jetty)', 'Infrastruktur pemuatan tongkang dengan sistem pencegahan tumpahan material ke perairan.')">
+                    <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=600&q=80" 
+                         onerror="this.src='https://placehold.co/600x400/D97706/FFFFFF?text=Terminal+Jetty'"
+                         alt="Pelabuhan Khusus" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent flex flex-col justify-end p-5">
+                        <h4 class="text-white font-bold text-base">Terminal Khusus (Jetty)</h4>
+                        <p class="text-slate-300 text-xs mt-1">Logistik Maritim</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== KONTAK & LOKASI ==================== -->
+    <section id="kontak" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Informasi Alamat & Peta -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest">Hubungi Kami</span>
+                        <h2 class="text-3xl font-extrabold text-navy-900 mt-2">Kantor & Lokasi Operasional</h2>
+                        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+                            Kami terbuka untuk kemitraan strategis, pertanyaan seputar program CSR, maupun informasi pengadaan barang dan jasa lokal.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Kantor Operasional -->
+                        <div class="flex items-start space-x-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Site Operasional Halmahera Timur</h4>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                    Kecamatan Maba / Wasile, Kabupaten Halmahera Timur, Provinsi Maluku Utara, Indonesia
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Kantor Perwakilan -->
+                        <div class="flex items-start space-x-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60">
+                            <div class="w-10 h-10 rounded-xl bg-navy-900/10 text-navy-900 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Kantor Perwakilan Jakarta</h4>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                    Kawasan Bisnis Sudirman (SCBD), Jl. Jend. Sudirman Kav. 52-53, Jakarta Selatan 12190
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Email & Telepon -->
+                        <div class="flex items-start space-x-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-900 text-sm">Korespondensi Resmi</h4>
+                                <p class="text-xs text-slate-600 mt-1">Email: info@ptposition.co.id</p>
+                                <p class="text-xs text-slate-600">Telp: (021) 5088-9400</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Peta Lokasi Halmahera Timur -->
+                    <div class="rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-navy-900 relative h-52 flex items-center justify-center">
+                        <iframe 
+                            title="Peta Wilayah Halmahera Timur Maluku Utara"
+                            class="w-full h-full border-0 opacity-90"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=127.85%2C0.55%2C128.85%2C1.45&amp;layer=mapnik&amp;marker=0.98%2C128.32">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Formulir Pesan Interaktif -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 sm:p-10">
+                        <h3 class="text-2xl font-bold text-navy-900 mb-2">Kirim Pesan kepada Kami</h3>
+                        <p class="text-sm text-slate-500 mb-6">Silakan lengkapi formulir di bawah ini, tim hubungan korporat kami akan segera menghubungi Anda.</p>
+
+                        <form id="contact-form" class="space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="nama" class="block text-xs font-bold text-navy-900 uppercase tracking-wider mb-2">Nama Lengkap *</label>
+                                    <input type="text" id="nama" required placeholder="Contoh: Budi Santoso"
+                                           class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 outline-none text-sm transition-all">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-xs font-bold text-navy-900 uppercase tracking-wider mb-2">Alamat Email *</label>
+                                    <input type="email" id="email" required placeholder="nama@perusahaan.com"
+                                           class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 outline-none text-sm transition-all">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="instansi" class="block text-xs font-bold text-navy-900 uppercase tracking-wider mb-2">Perusahaan / Instansi</label>
+                                    <input type="text" id="instansi" placeholder="Nama Instansi atau Komunitas"
+                                           class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 outline-none text-sm transition-all">
+                                </div>
+                                <div>
+                                    <label for="topik" class="block text-xs font-bold text-navy-900 uppercase tracking-wider mb-2">Topik Pertanyaan</label>
+                                    <select id="topik" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 outline-none text-sm bg-white transition-all">
+                                        <option value="Kemitraan & Komersial">Kemitraan & Komersial</option>
+                                        <option value="Program CSR & Masyarakat">Program CSR & Masyarakat</option>
+                                        <option value="Pengadaan / Vendor Lokal">Pengadaan / Vendor Lokal</option>
+                                        <option value="Karir & Rekrutmen">Karir & Rekrutmen</option>
+                                        <option value="Lainnya">Pertanyaan Umum</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="pesan" class="block text-xs font-bold text-navy-900 uppercase tracking-wider mb-2">Isi Pesan *</label>
+                                <textarea id="pesan" rows="4" required placeholder="Tuliskan detail pesan atau kebutuhan Anda di sini..."
+                                          class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 outline-none text-sm transition-all"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-navy-900 hover:bg-emerald-700 text-white font-bold text-sm transition-all shadow-lg flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Kirim Pesan Sekarang</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-navy-950 text-slate-400 pt-16 pb-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+                <!-- Brand -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-amber-500 flex items-center justify-center text-white font-bold">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <span class="text-white font-extrabold text-lg tracking-tight">PT POSITION</span>
+                    </div>
+                    <p class="text-xs leading-relaxed text-slate-400">
+                        Perusahaan pertambangan nikel berkelanjutan yang berdedikasi pada keunggulan operasional, keselamatan kerja, dan kemajuan masyarakat Maluku Utara.
+                    </p>
+                </div>
+
+                <!-- Tautan Cepat -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Navigasi</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="#beranda" class="hover:text-amber-400 transition-colors">Beranda</a></li>
+                        <li><a href="#tentang" class="hover:text-amber-400 transition-colors">Tentang Perusahaan</a></li>
+                        <li><a href="#layanan" class="hover:text-amber-400 transition-colors">Operasional Tambang</a></li>
+                        <li><a href="#keberlanjutan" class="hover:text-amber-400 transition-colors">Laporan Keberlanjutan & CSR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tata Kelola -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Tata Kelola (GCG)</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="#keberlanjutan" class="hover:text-emerald-400 transition-colors">Kebijakan Keselamatan (K3)</a></li>
+                        <li><a href="#keberlanjutan" class="hover:text-emerald-400 transition-colors">Standar Pengelolaan Lingkungan</a></li>
+                        <li><a href="#kontak" class="hover:text-emerald-400 transition-colors">Saluran Pelaporan (Whistleblowing)</a></li>
+                        <li><a href="#kontak" class="hover:text-emerald-400 transition-colors">Registrasi Mitra Lokal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kontak Singkat -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Wilayah Operasi</h4>
+                    <p class="text-xs leading-relaxed mb-3">
+                        <i class="fa-solid fa-location-dot text-emerald-400 mr-2"></i>Halmahera Timur, Maluku Utara
+                    </p>
+                    <p class="text-xs leading-relaxed">
+                        <i class="fa-solid fa-envelope text-amber-400 mr-2"></i>info@ptposition.co.id
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs gap-4">
+                <p>&copy; 2026 PT Position. Hak Cipta Dilindungi Undang-Undang.</p>
+                <p class="text-slate-500">Pertambangan Nikel Bertanggung Jawab untuk Indonesia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MODAL NOTIFIKASI & LIGHTBOX (PENGGANTI ALERT) ==================== -->
+    <div id="custom-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-navy-950/80 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl transform transition-all text-center">
+            <div id="modal-icon" class="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 id="modal-title" class="text-xl font-extrabold text-navy-900 mb-2">Pesan Terkirim!</h3>
+            <p id="modal-desc" class="text-sm text-slate-600 leading-relaxed mb-6">
+                Terima kasih telah menghubungi PT Position. Pesan Anda telah kami terima dan akan segera ditindaklanjuti oleh tim kami.
             </p>
-            <br>
-            <p>
-                Dengan mengutamakan profesionalisme, kualitas,
-                integritas, dan inovasi, PT POSITION terus berupaya
-                menjadi perusahaan yang terpercaya dan mampu
-                memberikan nilai tambah bagi masyarakat.
-            </p>
+            <button onclick="closeModal()" class="w-full py-3 rounded-xl bg-navy-900 hover:bg-emerald-700 text-white font-semibold text-sm transition-colors">
+                Tutup
+            </button>
         </div>
     </div>
-</section>
 
-<!-- VISI MISI -->
-<section class="vision" id="vision">
-    <div class="section-title">
-        <h2>Visi dan Misi</h2>
-        <p>Komitmen kami untuk masa depan yang lebih baik</p>
-    </div>
+    <!-- ==================== JAVASCRIPT INTERAKTIF ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Toggle Menu Mobile
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    <div class="vision-container">
-        <div class="vision-box">
-            <h3>VISI</h3>
-            <p>
-                Menjadi perusahaan yang unggul, terpercaya,
-                profesional, dan berdaya saing tinggi
-                dalam memberikan pelayanan terbaik.
-            </p>
-        </div>
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                } else {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-xmark');
+                }
+            });
 
-        <div class="vision-box">
-            <h3>MISI</h3>
-            <p>
-                1. Memberikan pelayanan berkualitas.<br>
-                2. Mengutamakan kepuasan pelanggan.<br>
-                3. Mengembangkan inovasi dan teknologi.<br>
-                4. Membangun kerja sama yang profesional.<br>
-                5. Menjunjung tinggi integritas.
-            </p>
-        </div>
-    </div>
-</section>
+            // Tutup menu mobile saat link diklik
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                });
+            });
 
-<!-- SERVICES -->
-<section id="services">
-    <div class="section-title">
-        <h2>Layanan Kami</h2>
-        <p>Solusi profesional untuk kebutuhan Anda</p>
-    </div>
+            // 2. Animasi Counter Statistik saat di-scroll
+            const counters = document.querySelectorAll('.counter');
+            let hasAnimated = false;
 
-    <div class="service-container">
+            const animateCounters = () => {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 2000; // 2 detik
+                    const increment = target / (duration / 16);
+                    let current = 0;
 
-        <div class="service-box">
-            <div class="icon">🏢</div>
-            <h3>Konsultasi Bisnis</h3>
-            <p>
-                Memberikan solusi dan konsultasi
-                untuk mendukung perkembangan bisnis.
-            </p>
-        </div>
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.innerText = Math.ceil(current).toLocaleString('id-ID');
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.innerText = target.toLocaleString('id-ID');
+                        }
+                    };
+                    updateCounter();
+                });
+            };
 
-        <div class="service-box">
-            <div class="icon">🤝</div>
-            <h3>Kerja Sama</h3>
-            <p>
-                Membangun hubungan kerja sama
-                yang saling menguntungkan.
-            </p>
-        </div>
+            const statsSection = document.getElementById('statistik');
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !hasAnimated) {
+                    animateCounters();
+                    hasAnimated = true;
+                }
+            }, { threshold: 0.3 });
 
-        <div class="service-box">
-            <div class="icon">💼</div>
-            <h3>Layanan Profesional</h3>
-            <p>
-                Memberikan pelayanan terbaik
-                dengan standar profesional.
-            </p>
-        </div>
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
 
-    </div>
-</section>
+            // 3. Penanganan Submit Formulir Kontak (Tanpa alert())
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const nama = document.getElementById('nama').value.trim();
+                const topik = document.getElementById('topik').value;
 
-<!-- ADVANTAGE -->
-<section class="advantage">
-    <div class="section-title">
-        <h2>Mengapa Memilih Kami?</h2>
-        <p>Keunggulan PT POSITION</p>
-    </div>
+                // Tampilkan modal sukses
+                const modal = document.getElementById('custom-modal');
+                const modalIcon = document.getElementById('modal-icon');
+                const modalTitle = document.getElementById('modal-title');
+                const modalDesc = document.getElementById('modal-desc');
 
-    <div class="advantage-container">
+                modalIcon.className = 'w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4';
+                modalIcon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+                modalTitle.innerText = `Terima Kasih, ${nama}!`;
+                modalDesc.innerText = `Pesan Anda terkait "${topik}" telah berhasil diteruskan ke tim Hubungan Korporat PT Position. Kami akan segera merespons melalui email Anda.`;
 
-        <div class="advantage-box">
-            <h3>Profesional</h3>
-            <p>Didukung komitmen dan standar kerja profesional.</p>
-        </div>
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                contactForm.reset();
+            });
+        });
 
-        <div class="advantage-box">
-            <h3>Terpercaya</h3>
-            <p>Mengutamakan integritas dan tanggung jawab.</p>
-        </div>
+        // 4. Filter Kategori CSR & Keberlanjutan
+        function filterCSR(category) {
+            const cards = document.querySelectorAll('.csr-card');
+            const tabs = document.querySelectorAll('.csr-tab');
 
-        <div class="advantage-box">
-            <h3>Inovatif</h3>
-            <p>Terus berkembang mengikuti kebutuhan zaman.</p>
-        </div>
+            // Update styling tombol tab
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-navy-900', 'text-white');
+                tab.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+            });
+            event.currentTarget.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+            event.currentTarget.classList.add('bg-navy-900', 'text-white');
 
-    </div>
-</section>
+            // Filter kartu
+            cards.forEach(card => {
+                if (category === 'semua' || card.getAttribute('data-category') === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-    <div class="section-title">
-        <h2>Hubungi Kami</h2>
-        <p>Kami siap menjadi mitra terbaik Anda</p>
-    </div>
+        // 5. Lightbox / Modal Detail Galeri
+        function openLightbox(title, description) {
+            const modal = document.getElementById('custom-modal');
+            const modalIcon = document.getElementById('modal-icon');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDesc = document.getElementById('modal-desc');
 
-    <div class="contact-container">
-        <p>
-            Untuk informasi lebih lanjut mengenai PT POSITION,
-            silakan hubungi kami melalui informasi berikut.
-        </p>
+            modalIcon.className = 'w-16 h-16 rounded-2xl bg-navy-900/10 text-navy-900 flex items-center justify-center text-3xl mx-auto mb-4';
+            modalIcon.innerHTML = '<i class="fa-solid fa-camera-retro"></i>';
+            modalTitle.innerText = title;
+            modalDesc.innerText = description;
 
-        <div class="contact-info">
-            <p>📍 Alamat: [Masukkan Alamat Perusahaan]</p>
-            <p>📞 Telepon: [Nomor Telepon]</p>
-            <p>✉️ Email: [Email Perusahaan]</p>
-            <p>🌐 Website: www.ptposition.com</p>
-        </div>
-    </div>
-</section>
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
 
-<!-- FOOTER -->
-<footer>
-    <p>
-        &copy; 2026 <span>PT POSITION</span>.
-        All Rights Reserved.
-    </p>
-    <p>Professionalism | Innovation | Integrity</p>
-</footer>
-
+        // 6. Tutup Modal
+        function closeModal() {
+            const modal = document.getElementById('custom-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    </script>
 </body>
 </html>
-
